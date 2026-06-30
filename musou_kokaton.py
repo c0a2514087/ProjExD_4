@@ -315,17 +315,16 @@ def main():
 
         for bomb in pg.sprite.spritecollide(bird, bombs, True):  # こうかとんと衝突した爆弾リスト
             life.num -= 1
-            bird.change_img(8, screen)  # こうかとん悲しみエフェクト
-            score.update(screen)
-            pg.display.update()
-            time.sleep(2)
             if life.num <= 0:
+                bird.change_img(8, screen)  # こうかとん悲しみエフェクト
+                score.update(screen)
+                pg.display.update()
+                time.sleep(2)
                 return
         
         if pg.sprite.spritecollide(bird, bombs, True):
             life.num -= 1
             
-
         bird.update(key_lst, screen)
         beams.update()
         beams.draw(screen)
